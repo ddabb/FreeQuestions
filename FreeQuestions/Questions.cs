@@ -1,14 +1,34 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace FreeQuestions
 {
     internal class Questions
     {
+
+        private string _id;
+        /// <summary>
+        /// 腾讯云数据库的主键
+        /// </summary>
+        [JsonProperty("_id")]
+        public string id
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_id))
+                { _id = Guid.NewGuid().ToString().Replace("-", ""); }
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
         /// <summary>
         /// 序号 例如01.json 则是01
         /// </summary>
-        [JsonProperty("_id")]
+        [JsonProperty("order")]
         public string order { get; set; }
 
         /// <summary>
@@ -36,14 +56,17 @@ namespace FreeQuestions
         /// <summary>
         /// 大类
         /// </summary>
-        [JsonProperty("division")]
-        public string division { get; set; } = "001";
-        
+        [JsonProperty("subjectid")]
+        public string subjectid { get; set; }
+
 
         /// <summary>
         /// 考试编号id
         /// </summary>
         [JsonProperty("examid")]
         public string examid { get; set; }
+
+
+
     }
 }
