@@ -1,0 +1,26 @@
+{
+  "title": "每个微信用户可以收藏多少个小程序？",
+  "comments": "",
+  "options": [
+    {
+      "value": "1",
+      "code": "A",
+      "content": "50个"
+    },
+    {
+      "value": "0",
+      "code": "B",
+      "content": "100个"
+    },
+    {
+      "value": "0",
+      "code": "C",
+      "content": "200个"
+    },
+    {
+      "value": "0",
+      "code": "D",
+      "content": "500个"
+    }
+  ]
+}
