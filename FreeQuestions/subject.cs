@@ -22,5 +22,8 @@ namespace FreeQuestions
         [JsonProperty("counts")]
         public int counts { get; set; }
 
+        [JsonProperty("enable")]
+        public bool enable { get; set; } = true;
+
     }
 }

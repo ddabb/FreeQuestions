@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -81,7 +82,7 @@ namespace FreeQuestions
                         {
              
                             var subjectid = matchSubjectResult[0].Value;
-                            var subjectName = dis.Name.Replace(subjectid, "");
+                            var subjectName = subDis.Name.Replace(subjectid, "");
                           
                             var files = subDis.GetFiles();
                             var fileCount = 0;
@@ -150,9 +151,10 @@ namespace FreeQuestions
             {
                 if (examMap.ContainsKey(item.examid))
                 {
-                    var subRoot = Path.Combine(fileBasePath, examMap[item.examid], item.id + item.name);
+                    var subRoot = Path.Combine(fileBasePath, examMap[item.examid], item.id+item.name);
                     if (!Directory.Exists(subRoot))
                     {
+                        Debug.WriteLine($"创建的路径是 {subRoot}");
                         Directory.CreateDirectory(subRoot);
                     }
                     var fileitems = questions.Where(c => c.examid == item.examid && c.subjectid == item.id).ToList();
