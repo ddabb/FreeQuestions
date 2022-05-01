@@ -9,5 +9,9 @@ namespace FreeQuestions
 
         [JsonProperty("name")]
         public string name { get; set; }
+
+
+        [JsonProperty("enable")]
+        public bool enable { get; set; } = true;
     }
 }
